@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(process)d - %(l
 NUMBER_OF_CLIENT_FIELDS = 7
 TEMP_CSV_FIELDNAMES = ['mac','first','last','power','packets','bssid','probed']
 
-class AirodumpParser:
+class AirodumpCsvHandler:
 
     def __init__(self, source_file):
         self.source_file = source_file
@@ -22,14 +22,14 @@ class AirodumpParser:
                 if len(row.split(',')) == NUMBER_OF_CLIENT_FIELDS:
                     self.csv_array.append(row)
 
-    def write_temp_csv(self):
+    def write_temp_client_csv(self):
         with open(self.temp_csv.name, 'w+') as temp_csv_file:
             for line in self.csv_array:
                 temp_csv_file.write(line)
 
-    def create_csv_dictionaries(self):
+    def read_client_csv(self):
         self.read_source_csv()
-        self.write_temp_csv()
+        self.write_temp_client_csv()
         with open(self.temp_csv.name) as csvfile:
             csv_dictionary = csv.DictReader(csvfile, fieldnames=TEMP_CSV_FIELDNAMES)
             for row in csv_dictionary:

@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='whoiswalkingby',
-    version='0.0.3',
+    version='0.0.4',
     author='Richard Julian',
     author_email='richard@rjulian.net',
     packages=find_packages(),

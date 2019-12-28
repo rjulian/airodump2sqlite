@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from whoiswalkingby import airodump_parser, database_outputter
+from whoiswalkingby import airodump_data_handler, airodump_csv_handler, database_handler
 import argparse
 
 parser = argparse.ArgumentParser(description='Start parser of Airodump data.')
@@ -9,8 +9,8 @@ parser.add_argument('--database-file', '-d', required=True, help='sqlite file to
 args = parser.parse_args()
 arg_hash = vars(args)
 
-parser = airodump_parser.AirodumpParser(arg_hash['airodump_file'])
-dictionary_array = parser.create_csv_dictionaries()
-
-db_outputter = database_outputter.DatabaseOutputter(dictionary_array, arg_hash['database_file'])
-db_outputter.update_table()
+csv_handler = airodump_csv_handler.AirodumpCsvHandler(arg_hash['airodump_file'])
+dictionary_array = csv_handler.read_client_csv()
+database = database_handler.DatabaseHandler(arg_hash['database_file'])
+data_handler = airodump_data_handler.AirodumpDataHandler(dictionary_array, database)
+data_handler.update_data()
