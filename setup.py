@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='airodump2sqlite',
-    version='0.0.4',
+    version='0.0.5',
     author='Richard Julian',
     author_email='richard@rjulian.net',
     packages=find_packages(),
