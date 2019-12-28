@@ -10,7 +10,7 @@ class AirodumpDataHandler:
         self.database_handler = database_handler
 
     def needs_updating(self, response, current):
-        if response[2] != current["last"]:
+        if response[3] != current["last"]:
             return True
 
     def update_data(self):
