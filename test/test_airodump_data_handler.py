@@ -40,21 +40,13 @@ class AirodumpDataHandlerTestCase(unittest.TestCase):
         self.database_handler.lookup_mac.return_value = EXAMPLE_SELECT
         example_dict_array = [ EXAMPLE_DICTIONARY ]
         test_handler = airodump_data_handler.AirodumpDataHandler(example_dict_array,self.database_handler)
-        self.assertFalse(test_handler.update_data())
         self.assertIsNone(test_handler.needs_updating(EXAMPLE_SELECT, EXAMPLE_DICTIONARY))
 
     def test_should_return_true_if_update_needed(self):
         self.database_handler.lookup_mac.return_value = EXAMPLE_SELECT
         example_dict_array = [ EXAMPLE2_DICTIONARY ]
         test_handler = airodump_data_handler.AirodumpDataHandler(example_dict_array,self.database_handler)
-        self.assertTrue(test_handler.update_data())
         self.assertTrue(test_handler.needs_updating(EXAMPLE_SELECT, EXAMPLE2_DICTIONARY))
-
-    def test_should_return_true_if_insert_needed(self):
-        self.database_handler.lookup_mac.return_value = None
-        example_dict_array = [ EXAMPLE2_DICTIONARY ]
-        test_handler = airodump_data_handler.AirodumpDataHandler(example_dict_array,self.database_handler)
-        self.assertTrue(test_handler.update_data())
 
     def test_adds_last_ten_correctly(self):
         last_ten = airodump_data_handler.AirodumpDataHandler.create_last_ten('2019-12-28 11:44:24','2019-12-28 11:44:24,2019-12-28 11:44:22,2019-12-28 11:44:23')
