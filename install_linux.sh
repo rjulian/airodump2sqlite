@@ -22,4 +22,4 @@ sudo airmon-ng $1
 echo "========================================="
 echo "Starting airodump on $1mon."
 echo "========================================="
-sudo airodump-ng --beacons -o csv -w whoiswalkingby $1mon
+sudo airodump-ng --beacons -o csv -w airodump2sqlite $1mon

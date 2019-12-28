@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
-from whoiswalkingby import airodump_data_handler, airodump_csv_handler, database_handler
+from airodump2sqlite import airodump_data_handler, airodump_csv_handler, database_handler
 import argparse
 
 parser = argparse.ArgumentParser(description='Start parser of Airodump data.')
 parser.add_argument('--airodump-file', '-a', required=True, help='location of airodump CSV output.')
 parser.add_argument('--database-file', '-d', required=True, help='sqlite file to be used as database.')
+parser.add_argument('--table-name', '-t', default='airodump2sqlite',  help='name of table to store data with in sqlite.')
 
 args = parser.parse_args()
 arg_hash = vars(args)
 
 csv_handler = airodump_csv_handler.AirodumpCsvHandler(arg_hash['airodump_file'])
 dictionary_array = csv_handler.read_client_csv()
-database = database_handler.DatabaseHandler(arg_hash['database_file'])
+database = database_handler.DatabaseHandler(arg_hash['database_file'], arg_hash['table_name'])
 data_handler = airodump_data_handler.AirodumpDataHandler(dictionary_array, database)
 data_handler.update_data()

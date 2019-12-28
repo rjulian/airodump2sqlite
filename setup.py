@@ -1,13 +1,12 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='whoiswalkingby',
+    name='airodump2sqlite',
     version='0.0.4',
     author='Richard Julian',
     author_email='richard@rjulian.net',
     packages=find_packages(),
-    url='http://pypi.python.org/pypi/TowelStuff/',
-    scripts=['bin/whoiswalkingby'],
+    scripts=['bin/airodump2sqlite'],
     license='LICENSE.txt',
     description='Parse airodump data and store in a queriable format.',
     long_description=open('README.md').read(),
