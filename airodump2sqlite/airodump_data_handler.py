@@ -20,12 +20,13 @@ class AirodumpDataHandler:
             if mac_data:
                 if self.needs_updating(mac_data, cleaned_line):
                     cleaned_line['last_ten'] = AirodumpDataHandler.create_last_ten(cleaned_line['last'], mac_data[8])
-                    self.database_handler.update_item(mac_data, cleaned_line)
+                    return self.database_handler.update_item(mac_data, cleaned_line)
                 else:
                     logging.debug('No update needed for %s' % (cleaned_line['mac']))
+                    return False
             else:
                 cleaned_line['easy_name'] = '_'.join(names.get_full_name().split(' ')).lower()
-                self.database_handler.insert_new_item(cleaned_line)
+                return self.database_handler.insert_new_item(cleaned_line)
 
     @staticmethod
     def create_last_ten(last, last_ten):
