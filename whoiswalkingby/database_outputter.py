@@ -5,7 +5,6 @@ import names
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(process)d - %(levelname)s - %(message)s', filename='evaluation.log')
 
-NUMBER_OF_CLIENT_FIELDS = 7
 TEMP_CSV_FIELDNAMES = ['mac','first','last','power','packets','bssid','probed']
 
 class DatabaseOutputter:
