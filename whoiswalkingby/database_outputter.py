@@ -3,7 +3,7 @@ import sqlite3
 import logging
 import names
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(process)d - %(levelname)s - %(message)s', filename='evaluation.log')
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(process)d - %(levelname)s - %(message)s')
 
 TEMP_CSV_FIELDNAMES = ['mac','first','last','power','packets','bssid','probed']
 

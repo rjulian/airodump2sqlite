@@ -3,7 +3,7 @@ import logging
 import names
 import tempfile
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(process)d - %(levelname)s - %(message)s', filename='evaluation.log')
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(process)d - %(levelname)s - %(message)s')
 
 NUMBER_OF_CLIENT_FIELDS = 7
 TEMP_CSV_FIELDNAMES = ['mac','first','last','power','packets','bssid','probed']
