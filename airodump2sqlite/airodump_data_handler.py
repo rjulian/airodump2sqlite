@@ -43,5 +43,3 @@ class AirodumpDataHandler:
         for key in keys:
             clean_dictionary[key] = dictionary[key].lstrip()
         return clean_dictionary
-
-
