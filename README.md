@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/rjulian/airodump2sqlite/tree/master.svg?style=svg)](https://circleci.com/gh/rjulian/airodump2sqlite/tree/master)
 # airodump2sqlite
 A tool to collect 802.11 client data from airodump-ng into a sqlite database. A few additional metadata have been appended to the original data collected by airodump-ng, namely an "easy_name" field for referring to the individual MAC addresses and a "last ten visits" field.
 
