@@ -33,7 +33,8 @@ class DatabaseOutputter:
         self.conn.commit()
 
     def update_item(self, response, current):
-        new_last_ten = DatabaseOutputter.create_last_ten(current['last'], response[7])
+        new_last_ten = DatabaseOutputter.create_last_ten(current['last'],
+                                                         response[8])
         command = 'UPDATE whoiswalkingby SET '\
                   'last_seen = "%s",'\
                   'power = "%s",'\
